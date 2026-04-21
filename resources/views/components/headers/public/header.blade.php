@@ -17,10 +17,10 @@
     <div id="hs-pro-hcail" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow lg:block lg:w-auto lg:basis-auto lg:order-2 lg:col-span-6">
       <div class="flex flex-col gap-y-5 lg:flex-row lg:items-center lg:justify-center lg:gap-x-9 text-sm font-medium">
         <a href="/" class="text-white hover:text-orange-400 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:bg-orange-500 after:w-0 hover:after:w-full after:transition-all">Home</a>
-        <a href="#" class="text-white hover:text-orange-400 transition-colors">About</a>
-        <a href="#" class="text-white hover:text-orange-400 transition-colors">Contact</a>
-        <a href="#" class="text-white hover:text-orange-400 transition-colors">Product</a>
-        <a href="#" class="text-white hover:text-orange-400 transition-colors">Shops</a>
+        <a href="/about" class="text-white hover:text-orange-400 transition-colors">About</a>
+        <a href="/contact" class="text-white hover:text-orange-400 transition-colors">Contact</a>
+        <a href="/products" class="text-white hover:text-orange-400 transition-colors">Product</a>
+        <a href="/shops" class="text-white hover:text-orange-400 transition-colors">Shops</a>
       </div>
     </div>
 
@@ -35,10 +35,10 @@
         </svg>
       </button>
       <!-- Sign In -->
-      <button type="button"
+      <a href="/login"
               class="py-3 px-6 font-semibold rounded-2xl bg-orange-600 hover:bg-orange-500 transition-all text-white shadow-lg shadow-orange-500/30">
         Sign in
-      </button>
+    </a>
 
       <!-- Mobile Menu Toggle -->
       <div class="lg:hidden">
