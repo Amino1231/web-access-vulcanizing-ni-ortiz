@@ -17,19 +17,19 @@
     @livewireStyles
 </head>
 
-<body class="bg-white dark:bg-black text-black flex p-6 lg:p-8 items-center lg:justify-center flex-col">
+<body class="bg-[#1A1A1A] text-white">
     @include('components.headers.admin.header')
     @include('components.navbars.admin.navbar')
 
-    <main class="lg:hs-overlay-layout-open:ps-60 bg-red-700 transition-all duration-300 lg:fixed lg:inset-0 pt-13 px-3 pb-3 dark:bg-black">
-        <div class="h-[calc(100dvh-62px)] lg:h-full overflow-hidden flex flex-col bg-white border border-red-700 shadow-xs rounded-lg dark:bg-neutral-800">
-            
-            <!-- Body -->
-            <div class="bg-white dark:bg-black flex-1 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-0 text-black dark:text-white">
-                {{ $slot }}
+    <main class="lg:ml-64 p-4 md:p-6 mt-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-neutral-900 border border-orange-500/30 rounded-2xl shadow-xl overflow-hidden">
+                <!-- Body -->
+                <div class="p-4 md:p-6 min-h-[calc(100vh-120px)]">
+                    {{ $slot }}
+                </div>
+                <!-- End Body -->
             </div>
-            <!-- End Body -->
-
         </div>
     </main>
 
