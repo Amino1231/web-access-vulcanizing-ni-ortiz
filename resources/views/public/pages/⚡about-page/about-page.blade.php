@@ -1,8 +1,7 @@
 
 <div>
   <!-- ========== ABOUT HERO SECTION ========== -->
-  <section class="relative bg-[#1A1A1A] overflow-hidden py-24">
-    <div class="absolute inset-0 bg-gradient-to-br from-orange-600/10 via-transparent to-transparent"></div>
+  <section class="relative bg-gradient-to-br from-orange-600/20 via-transparent to-transparent overflow-hidden py-24">
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">
       <div class="max-w-3xl">
@@ -93,7 +92,7 @@
         <div class="relative">
           <div class="absolute -inset-6 bg-orange-500/10 rounded-[3rem] rotate-3"></div>
           <img
-            src="https://images.pexels.com/photos/4489747/pexels-photo-4489747.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            src="{{ asset('imgs/worker.png') }}"
             alt="VulcanCing team working on tire"
             class="relative w-full rounded-3xl shadow-2xl border border-orange-500/20 object-cover aspect-[4/3]">
 
@@ -103,7 +102,7 @@
               <div class="text-4xl">👷‍♂️</div>
               <div>
                 <p class="font-bold text-lg leading-none text-white">Certified</p>
-                <p class="text-orange-400 text-sm">Technicians</p>
+                <p class="text-orange-400 text-sm">Baskogan Vulcanizer</p>
               </div>
             </div>
           </div>

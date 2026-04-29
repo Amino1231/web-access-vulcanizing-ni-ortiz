@@ -1,6 +1,6 @@
 
 <div>
-    <div class="bg-[#1A1A1A] py-20">
+    <div class="bg-gradient-to-br from-orange-600/20 via-transparent to-transparent py-20">
   <div class="max-w-6xl mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center mb-12">

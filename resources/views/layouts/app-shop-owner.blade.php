@@ -17,22 +17,18 @@
     @livewireStyles
 </head>
 
-<body class="bg-white dark:bg-black text-black flex p-6 lg:p-8 items-center lg:justify-center flex-col">
+<body>
     @include('components.headers.shop-owner.header')
     @include('components.navbars.shop-owner.navbar')
-
-    <main class="lg:hs-overlay-layout-open:ps-60 bg-red-700 transition-all duration-300 lg:fixed lg:inset-0 pt-13 px-3 pb-3 dark:bg-black">
-        <div class="h-[calc(100dvh-62px)] lg:h-full overflow-hidden flex flex-col bg-white border border-red-700 shadow-xs rounded-lg dark:bg-neutral-800">
-            
+    <main class="lg:hs-overlay-layout-open:ps-60 transition-all duration-300 lg:fixed lg:inset-0 pt-13 px-3 pb-3 bg-[#1A1A1A]">
+        <div class="h-[calc(100dvh-62px)] lg:h-full overflow-hidden flex flex-col shadow-xs rounded-lg">
             <!-- Body -->
-            <div class="bg-white dark:bg-black flex-1 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-0 text-black dark:text-white">
+            <div class="flex-1 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-0 ">
                 {{ $slot }}
             </div>
             <!-- End Body -->
-
         </div>
     </main>
-
     @livewireScripts
     <script src="https://unpkg.com/preline/dist/preline.js"></script>
 </body>

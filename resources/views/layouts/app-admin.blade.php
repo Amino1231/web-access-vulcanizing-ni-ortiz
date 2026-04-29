@@ -17,24 +17,21 @@
     @livewireStyles
 </head>
 
-<body class="bg-[#1A1A1A] text-white">
+<body>
     @include('components.headers.admin.header')
     @include('components.navbars.admin.navbar')
-
-    <main class="lg:ml-64 p-4 md:p-6 mt-16">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-neutral-900 border border-orange-500/30 rounded-2xl shadow-xl overflow-hidden">
-                <!-- Body -->
-                <div class="p-4 md:p-6 min-h-[calc(100vh-120px)]">
-                    {{ $slot }}
-                </div>
-                <!-- End Body -->
+    <main class="lg:hs-overlay-layout-open:ps-60 transition-all duration-300 lg:fixed lg:inset-0 pt-13 px-3 pb-3 bg-[#1A1A1A]">
+        <div class="h-[calc(100dvh-62px)] lg:h-full overflow-hidden flex flex-col shadow-xs rounded-lg">
+            <!-- Body -->
+            <div class="flex-1 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-0 ">
+                {{ $slot }}
             </div>
+            <!-- End Body -->
         </div>
     </main>
-
     @livewireScripts
     <script src="https://unpkg.com/preline/dist/preline.js"></script>
 </body>
+
 
 </html>

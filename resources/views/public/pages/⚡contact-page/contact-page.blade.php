@@ -1,6 +1,6 @@
 
 <div>
-  <div class="bg-[#1A1A1A] py-20 border-t border-white/10">
+  <div class="bg-gradient-to-br from-orange-600/20 via-transparent to-transparent py-20 border-t border-white/10">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center mb-12">
       <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-sm font-medium px-4 py-2 rounded-full mb-4">

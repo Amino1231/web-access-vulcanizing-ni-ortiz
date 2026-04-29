@@ -16,9 +16,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::livewire('/dashboard', 'admin::pages.dashboard')->name('admin.dashboard');
 
+    Route::livewire('/users', 'admin::pages.user.view-user')->name('admin.users');
+    Route::livewire('/users/create', 'admin::pages.user.create-user')->name('admin.users.create');
+    Route::livewire('/users/{user}/edit', 'admin::pages.user.update-user')->name('admin.users.update');
 
-
-
+    Route::livewire('/roles', 'admin::pages.role.view-role')->name('admin.roles');
+    Route::livewire('/roles/create', 'admin::pages.role.create-role')->name('admin.roles.create');
+    Route::livewire('/roles/{role}/edit', 'admin::pages.role.update-role')->name('admin.roles.update');
+    
 });
 
 Route::middleware(['auth', 'shop-owner', 'admin'])->prefix('shop-owner')->group(function () {

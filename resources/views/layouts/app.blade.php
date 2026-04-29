@@ -19,7 +19,7 @@
 
 <body>
     @include('components.headers.public.header')
-        <main>
+        <main class="bg-[#1A1A1A]">
             {{ $slot }}
         </main>
     @include('components.footers.public.footer')
