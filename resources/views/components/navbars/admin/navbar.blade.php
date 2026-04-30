@@ -82,15 +82,22 @@
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
                                 wire:current="bg-orange-400"
-                                href="#">
+                                href="{{ route('admin.admins') }}">
                                 View All Admins
                             </a>
                         </li>
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
                                 wire:current="bg-orange-400"
-                                href="#">
-                                View All Alumni
+                                href="{{ route('admin.shop-owners') }}">
+                                View All Shop Owner
+                            </a>
+                        </li>
+                        <li>
+                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
+                                wire:current="bg-orange-400"
+                                href="{{ route('admin.customers') }}">
+                                View All Customer
                             </a>
                         </li>
                     </ul>
@@ -100,7 +107,7 @@
                 <div
                     class="pt-3 mt-3 flex flex-col border-t border-orange-600 first:border-t-0 first:pt-0 first:mt-0">
                     <span class="block ps-2.5 mb-2 font-extrabold text-xs uppercase text-orange-400">
-                       Departments
+                       Pending Shop Owners
                     </span>
 
                     <!-- List -->
@@ -109,14 +116,26 @@
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
                                 wire:current="bg-orange-400"
                                 href="#">
-                                View All Departments
+                                View All pending
                             </a>
                         </li>
+                    </ul>
+                    <!-- End List -->
+                </div>
+
+                <div
+                    class="pt-3 mt-3 flex flex-col border-t border-orange-600 first:border-t-0 first:pt-0 first:mt-0">
+                    <span class="block ps-2.5 mb-2 font-extrabold text-xs uppercase text-orange-400">
+                       Categories
+                    </span>
+
+                    <!-- List -->
+                    <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
                                 wire:current="bg-orange-400"
-                                href="#">
-                                View All Courses
+                                href="{{ route('admin.category') }}">
+                                View All Categories
                             </a>
                         </li>
                     </ul>
@@ -138,52 +157,10 @@
                                 Roles
                             </a>
                         </li>
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
-                                wire:current="bg-orange-400"
-                                href="#">
-                                Assign Department
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
-                                wire:current="bg-orange-400"
-                                href="#">
-                                Batch Years
-                            </a>
-                        </li>
                     </ul>
                     <!-- End List -->
                     
-                </div>
-
-                <div
-                    class="pt-3 mt-3 flex flex-col border-t border-orange-600 first:border-t-0 first:pt-0 first:mt-0">
-                    <span class="block ps-2.5 mb-2 font-extrabold text-xs uppercase text-orange-400">
-                        Requests
-                    </span>
-
-                    <!-- List -->
-                    <ul class="flex flex-col gap-y-1">
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
-                                wire:current="bg-orange-400"
-                                href="#">
-                                Application Requests
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
-                                wire:current="bg-orange-400"
-                                href="#">
-                                Email Templates
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- End List -->
-
-                </div>
-                
+                </div>           
             </nav>
             <!-- End Body -->
         </div>

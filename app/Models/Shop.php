@@ -25,7 +25,7 @@ class Shop extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'shop_id', 'user_id', 'shop_user');
+        return $this->belongsToMany(User::class, 'shop_user', 'shop_id', 'user_id');
     }
 
     public function products(): HasMany

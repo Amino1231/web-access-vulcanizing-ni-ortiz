@@ -46,7 +46,7 @@
                             </button>
 
                             <!-- Account Dropdown -->
-                            <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-green-700 border border-yellow-500 rounded-xl shadow-xl"
+                            <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-orange-600 border border-neutral rounded-xl shadow-xl"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-dnad">
                                 <div class="py-2 px-3.5">
                                     <span class="font-extrabold text-white">

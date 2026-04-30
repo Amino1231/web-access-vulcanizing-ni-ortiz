@@ -2,7 +2,7 @@
     <!-- Table Section -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto rounded-xl">
         <!-- Card -->
-        <div class="flex flex-col rounded-xl border border-white/30 p-4 sm:p-6 lg:p-8 bg-green-50 shadow-2xl">
+        <div class="flex flex-col rounded-xl border border-neutral p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-orange-600/20 via-transparent to-transparent shadow-2xl">
             <div class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-md">
                 <div class="min-w-full inline-block align-middle">
                     <div
@@ -11,10 +11,10 @@
                         <div
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center">
                             <div>
-                                <h2 class="text-xl font-extrabold text-green-700">
+                                <h2 class="text-xl font-extrabold text-orange-400">
                                     All Users
                                 </h2>
-                                <p class="text-sm text-black">
+                                <p class="text-sm text-white">
                                     Manage all users
                                 </p>
                                 <!-- Only shows if the checkbox in thead or td is clicked -->
@@ -37,11 +37,11 @@
 
                             <div>
                                 <div class="inline-flex gap-x-2">
-                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-700 text-white shadow-2xs hover:bg-green-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-green-700"
+                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white shadow-2xs hover:bg-orange-400 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-orange-400"
                                         href="#">
                                         View all
                                     </a>
-                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-700 text-white hover:bg-green-600 focus:outline-hidden focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-400 focus:outline-hidden focus:bg-orange-400 disabled:opacity-50 disabled:pointer-events-none"
                                         href="{{ route('admin.users.create') }}">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -58,7 +58,7 @@
 
                         <!-- Table -->
                         <table class="min-w-full text-xs sm:text-sm">
-                            <thead class="bg-green-700">
+                            <thead class="bg-orange-600">
                                 <tr>
                                     <th class="ps-2 sm:ps-6 py-3">
                                         <input type="checkbox"
@@ -100,35 +100,35 @@
                                                 class="border-gray-300 rounded-sm text-blue-600 align-middle">
                                         </td>
                                         <td class="px-2 sm:px-6 py-3">
-                                            <span class="block font-semibold text-black">
+                                            <span class="block font-semibold text-white">
                                                 {{ ($user->name) }}
                                             </span>
                                         </td>
                                         <td class="hidden sm:table-cell px-2 sm:px-6 py-3">
-                                            <span class="block text-black">
+                                            <span class="block text-white">
                                                 {{ $user->email }}
                                             </span>
                                         </td>
                                         <td class="hidden sm:table-cell px-6 py-3">
-                                            <span class="block text-sm text-black">
+                                            <span class="block text-sm text-white">
                                                 {{ \Illuminate\Support\Str::ucfirst($user->roles->pluck('name')->join(', ') ?: 'No role') }}
                                             </span>
                                         </td>
                                         <td class="hidden md:table-cell px-2 sm:px-6 py-3">
-                                            <span class="text-black">
+                                            <span class="text-white">
                                                 {{ $user->created_at->diffForHumans() }}
                                             </span>
                                         </td>
                                         <td class="px-2 sm:px-6 py-1.5 text-start">
                                             <a href="{{ route('admin.users.update', $user->id) }}"
-                                            class="text-black hover:underline">
+                                            class="text-white hover:underline">
                                                 Edit
                                             </a>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-2 sm:px-6 py-4 text-center text-black">
+                                        <td colspan="5" class="px-2 sm:px-6 py-4 text-center text-white">
                                             No users found.
                                         </td>
                                     </tr>
@@ -140,8 +140,8 @@
                         <!-- Footer -->
                         <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-white/30">
                             <div>
-                                <p class="text-sm text-black">
-                                    <span class="font-semibold text-black">
+                                <p class="text-sm text-white">
+                                    <span class="font-semibold text-white">
                                         {{ $this->users->total() }}
                                     </span>
                                     results
@@ -162,7 +162,7 @@
                                         </button>
                                     @else
                                         <button wire:click="previousPage"
-                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-green-700 text-white hover:bg-green-600">
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-700 text-white hover:bg-orange-400">
                                             <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M12 15l-6-6 6-6" />
@@ -174,7 +174,7 @@
                                     {{-- Next Button --}}
                                     @if($this->users->hasMorePages())
                                         <button wire:click="nextPage"
-                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-green-700 text-white hover:bg-green-600">
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-700 text-white hover:bg-orange-400">
                                             Next
                                             <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

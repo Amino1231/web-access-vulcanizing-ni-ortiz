@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function shops(): BelongsToMany
     {
-        return $this->belongsToMany(Shop::class, 'shop_id', 'user_id', 'shop_user');
+        return $this->belongsToMany(Shop::class, 'shop_user', 'user_id', 'shop_id',);
     }
 
     /**

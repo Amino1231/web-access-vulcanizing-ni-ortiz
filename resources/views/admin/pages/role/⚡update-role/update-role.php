@@ -46,6 +46,6 @@ new #[Layout('layouts.app-admin')] class extends Component
         $this->role->syncPermissions($this->selectedPermissions);
 
         session()->flash('success', 'Role updated successfully!');
-        return redirect()->route('view-role');
+        return redirect()->route('admin.roles');
     }
 };

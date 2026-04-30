@@ -2,14 +2,14 @@
   <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto rounded-xl">
     <div class="mt-12 max-w-full mx-auto">
       <!-- Card -->
-      <div class="flex flex-col border border-transparent rounded-xl p-4 sm:p-6 lg:p-8 bg-green-50 shadow-2xl">
+      <div class="flex flex-col border border-transparent rounded-xl p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-orange-600/20 via-transparent to-transparent shadow-2xl">
 
         <!-- Back Button -->
         <div class="mb-4">
           <a href="{{ route('admin.users') }}"
             class="inline-flex items-center gap-x-2 px-3 py-2 text-sm font-medium
-              border border-transparent rounded-lg bg-green-700 text-white
-              hover:bg-green-600 focus:outline-hidden">
+              border border-transparent rounded-lg bg-orange-600 text-white
+              hover:bg-orange-400 focus:outline-hidden">
             <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 15l-6-6 6-6" />
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Title -->
-        <h2 class="mb-8 text-xl font-semibold text-black">
+        <h2 class="mb-8 text-xl font-semibold text-white">
           Update User
         </h2>
 
@@ -30,42 +30,42 @@
             <!-- Name -->
             <div>
               <label for="hs-name"
-                class="block mb-2 text-sm font-medium text-black">Name</label>
+                class="block mb-2 text-sm font-medium text-white">Name</label>
               <input wire:model.defer='name' type="text" name="hs-name" id="hs-name"
-                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-black placeholder:text-black">
+                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-white placeholder:text-white">
                 @error('name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
             <!-- Email -->
             <div class="mt-5">
               <label for="hs-email"
-                class="block mb-2 text-sm font-medium text-black">Email</label>
+                class="block mb-2 text-sm font-medium text-white">Email</label>
               <input wire:model.defer='email' type="email" name="hs-email" id="hs-email"
-                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-black placeholder:text-black">
+                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-white placeholder:text-white">
                 @error('email') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
             <!-- Password -->
             <div class="mt-5">
               <label for="hs-password"
-                class="block mb-2 text-sm font-medium text-black">Password</label>
+                class="block mb-2 text-sm font-medium text-white">Password</label>
               <input wire:model.defer='password' type="password" name="hs-password" id="hs-password"
-                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-black placeholder:text-black">
+                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-white placeholder:text-white">
                 @error('password') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
             <!-- Password Confirmation -->
             <div class="mt-5">
               <label for="hs-password_confirmation"
-                class="block mb-2 text-sm font-medium text-black">Confirm Password</label>
+                class="block mb-2 text-sm font-medium text-white">Confirm Password</label>
               <input wire:model.defer='password_confirmation' type="password" name="hs-password_confirmation" id="hs-password_confirmation"
-                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-black placeholder:text-black">
+                class="py-2.5 sm:py-3 px-4 block focus:outline-none w-full  border-black border rounded-lg sm:text-sm text-white placeholder:text-white">
                 @error('password_confirmation') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
             <!-- Role -->
             <div class="mt-5">
-              <h2 class="mb-1 text-lg font-semibold text-black">
+              <h2 class="mb-1 text-lg font-semibold text-white">
                 Assign Role
               </h2>
 
@@ -78,7 +78,7 @@
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
               @forelse ($this->roles as $role)
-                <label class="flex items-center p-3 w-full bg-green-50 shadow-2xl border-transparent rounded-lg text-sm hover:bg-gray-200 transition">
+                <label class="flex items-center p-3 w-full bg-orange-600 shadow-2xl border-transparent rounded-lg text-sm hover:bg-orange-400 transition">
                   <input type="checkbox" 
                         value="{{ $role->name }}"
                         x-data
@@ -87,13 +87,13 @@
                         })"
                         @checked($selectedRole === $role->name)
                         @click="$wire.set('selectedRole', '{{ $role->name }}')"
-                        class="shrink-0 size-4 rounded-sm text-primary">
-                        <span class="ms-3 text-muted-foreground-1 text-black">
+                        class="shrink-0 size-4 rounded-sm text-white">
+                        <span class="ms-3 text-muted-foreground-1 text-white">
                             {{ Str::ucfirst($role->name) }}
                         </span>
                 </label>
               @empty
-                <p class="text-black">No Roles Found</p>
+                <p class="text-white">No Roles Found</p>
               @endforelse
             </div>
           </div>
@@ -101,7 +101,7 @@
           <!-- Update Button -->
           <div class="mt-6 grid">
             <button type="submit"
-              class="w-50 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-700 text-white hover:bg-green-600 focus:outline-hidden">
+              class="w-50 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-400 focus:outline-hidden">
               Update
             </button>
           </div>

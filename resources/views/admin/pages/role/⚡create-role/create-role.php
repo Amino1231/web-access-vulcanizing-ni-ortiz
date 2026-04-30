@@ -68,6 +68,6 @@ new #[Layout('layouts.app-admin')] class extends Component
             'name', 'selectedPermissions'
         ]);
 
-        return redirect()->route('view-role');
+        return redirect()->route('admin.roles');
     }
 };

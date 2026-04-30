@@ -1,52 +1,55 @@
 <div>
     <!-- Table Section -->
-    <div
-        class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto rounded-xl bg-gradient-to-br from-orange-600/20 via-transparent to-transparent">
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto rounded-xl">
         <!-- Card -->
-        <div class="flex flex-col rounded-xl border border-transparent p-4 sm:p-6 lg:p-8 border-gray-800 bg-neutral-900/60 shadow-2xl">
+        <div class="flex flex-col rounded-xl border border-neutral p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-orange-600/20 via-transparent to-transparent shadow-2xl">
             <div class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-md">
                 <div class="min-w-full inline-block align-middle">
-                    <div class="rounded-xl shadow-2xs overflow-hidden">
+                    <div
+                        class="rounded-xl shadow-2xs overflow-hidden">
                         <!-- Header -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center">
+                        <div
+                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center">
                             <div>
                                 <h2 class="text-xl font-extrabold text-orange-400">
-                                    Role & Permissions
+                                    All Categories
                                 </h2>
                                 <p class="text-sm text-white">
-                                    Manage role and permissions
+                                    Manage all categories
                                 </p>
-                                @if (!empty($selectedRoles))
+                                <!-- Only shows if the checkbox in thead or td is clicked -->
+                                @if(!empty($selectedCats))
                                     <div class="py-2">
-                                        <button x-data
+                                        <button 
+                                            x-data 
                                             @click="
-                                            if (confirm('Are you sure you want to delete ' + {{ count($selectedRoles) }} + ' role(s)?')) {
-                                                $wire.deleteSelected()
-                                            }
-                                        "
+                                                if (confirm('Are you sure you want to delete ' + {{ count($selectedCats) }} + ' category(s)?')) {
+                                                    $wire.deleteSelected()
+                                                }
+                                            "
                                             id="btn-cancel"
                                             class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
-                                            Delete Selected ({{ count($selectedRoles) }})
+                                            Delete Selected ({{ count($selectedCats) }})
                                         </button>
-                                    </div>
+                                    </div>`
                                 @endif
                             </div>
 
                             <div>
                                 <div class="inline-flex gap-x-2">
-                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white shadow-2xs hover:bg-orange-400 focus:outline-hidden focus:bg-orange-400"
+                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white shadow-2xs hover:bg-orange-400 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-orange-400"
                                         href="#">
                                         View all
                                     </a>
-                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-400 focus:outline-hidden focus:bg-orange-400"
-                                        href="{{ route('admin.roles.create') }}">
+                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-400 focus:outline-hidden focus:bg-orange-400 disabled:opacity-50 disabled:pointer-events-none"
+                                        href="{{ route('admin.category.create') }}">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M5 12h14" />
                                             <path d="M12 5v14" />
                                         </svg>
-                                        Add Role
+                                        Add Category
                                     </a>
                                 </div>
                             </div>
@@ -58,9 +61,12 @@
                             <thead class="bg-orange-600">
                                 <tr>
                                     <th class="ps-2 sm:ps-6 py-3">
-                                        <input type="checkbox" wire:click="toggleSelectAll" @checked($selectAll)
-                                            x-data x-init="$watch('$wire.selectedRoles', value => {
-                                                const total = {{ $this->totalRolesCount }};
+                                        <input type="checkbox"
+                                            wire:click="toggleSelectAll"
+                                            @checked($selectAll)
+                                            x-data
+                                            x-init="$watch('$wire.selectedCats', value => {
+                                                const total = {{ $this->totalCatsCount }}; 
                                                 const selected = value.length;
                                                 $el.indeterminate = selected > 0 && selected < total;
                                                 $el.checked = selected === total;
@@ -68,14 +74,15 @@
                                             class="border-gray-300 rounded-sm text-blue-600">
                                     </th>
                                     <th class="ps-2 sm:ps-6 py-3 text-start font-extrabold uppercase text-white">
-                                        Role
+                                        Name
                                     </th>
-                                    <th
-                                        class="hidden sm:table-cell px-2 sm:px-6 py-3 text-start font-extrabold uppercase text-white">
-                                        Permissions
+                                    <th class="hidden sm:table-cell px-2 sm:px-6 py-3 text-start font-extrabold uppercase text-white">
+                                        Slug
                                     </th>
-                                    <th
-                                        class="hidden md:table-cell px-2 sm:px-6 py-3 text-start font-extrabold uppercase text-white">
+                                    <th class="hidden sm:table-cell px-2 sm:px-6 py-3 text-start font-extrabold uppercase text-white">
+                                        Description
+                                    </th>
+                                    <th class="hidden md:table-cell px-2 sm:px-6 py-3 text-start font-extrabold uppercase text-white">
                                         Created
                                     </th>
                                     <th class="px-2 sm:px-6 py-3 text-end"></th>
@@ -83,32 +90,38 @@
                             </thead>
 
                             <tbody class="divide-y divide-white/30">
-                                @forelse ($this->roles as $role)
+                                @forelse ($this->categories as $cat)
                                     <tr>
                                         <td class="w-4 ps-2 sm:ps-6 py-3 text-center align-middle">
-                                            <input type="checkbox" wire:click="toggleRowSelection({{ $role->id }})"
+                                            <input type="checkbox"
+                                                wire:click="toggleRowSelection({{ $cat->id }})"
                                                 x-data
-                                                x-bind:checked="@js($selectedRoles).includes({{ $role->id }})"
+                                                x-bind:checked="@js($selectedCats).includes({{ $cat->id }})"
                                                 class="border-gray-300 rounded-sm text-blue-600 align-middle">
                                         </td>
                                         <td class="px-2 sm:px-6 py-3">
                                             <span class="block font-semibold text-white">
-                                                {{ \Illuminate\Support\Str::ucfirst($role->name) }}
+                                                {{ ($cat->cat_name) }}
                                             </span>
                                         </td>
                                         <td class="hidden sm:table-cell px-2 sm:px-6 py-3">
                                             <span class="block text-white">
-                                                {{ ucwords(str_replace('_', ' ', $role->permissions->pluck('name')->implode(', '))) }}
+                                                {{ $cat->cat_slug }}
+                                            </span>
+                                        </td>
+                                        <td class="hidden sm:table-cell px-6 py-3">
+                                            <span class="block text-sm text-white">
+                                                {{ $cat->cat_desc }}
                                             </span>
                                         </td>
                                         <td class="hidden md:table-cell px-2 sm:px-6 py-3">
                                             <span class="text-white">
-                                                {{ $role->created_at->diffForHumans() }}
+                                                {{ $cat->created_at->diffForHumans() }}
                                             </span>
                                         </td>
                                         <td class="px-2 sm:px-6 py-1.5 text-start">
-                                            <a href="{{ route('admin.roles.update', $role->id) }}"
-                                                class="text-white hover:underline">
+                                            <a href="{{ route('admin.category.update', $cat->id) }}"
+                                            class="text-white hover:underline">
                                                 Edit
                                             </a>
                                         </td>
@@ -116,7 +129,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="5" class="px-2 sm:px-6 py-4 text-center text-white">
-                                            No roles found.
+                                            No categories found.
                                         </td>
                                     </tr>
                                 @endforelse
@@ -125,24 +138,23 @@
                         <!-- End Table -->
 
                         <!-- Footer -->
-                        <div
-                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-transparent">
+                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-white/30">
                             <div>
                                 <p class="text-sm text-white">
                                     <span class="font-semibold text-white">
-                                        {{ $this->roles->total() }}
+                                        {{ $this->categories->total() }}
                                     </span>
                                     results
-                                </p>
+                                </p>  
                             </div>
                             <div>
                                 <div class="inline-flex gap-x-2">
+                                    
                                     {{-- Prev Button --}}
-                                    @if ($this->roles->onFirstPage())
+                                    @if($this->categories->onFirstPage()) 
                                         <button disabled
                                             class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md border text-gray-400 cursor-not-allowed">
-                                            <svg class="w-4 h-4 flex-shrink-0 align-middle"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M12 15l-6-6 6-6" />
                                             </svg>
@@ -150,9 +162,8 @@
                                         </button>
                                     @else
                                         <button wire:click="previousPage"
-                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-600 text-white hover:bg-orange-400">
-                                            <svg class="w-4 h-4 flex-shrink-0 align-middle"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-700 text-white hover:bg-orange-400">
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M12 15l-6-6 6-6" />
                                             </svg>
@@ -161,22 +172,20 @@
                                     @endif
 
                                     {{-- Next Button --}}
-                                    @if ($this->roles->hasMorePages())
+                                    @if($this->categories->hasMorePages())
                                         <button wire:click="nextPage"
-                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-600 text-white hover:bg-orange-400">
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md hover:shadow-md transition-all duration-200 bg-orange-700 text-white hover:bg-orange-400">
                                             Next
-                                            <svg class="w-4 h-4 flex-shrink-0 align-middle"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M9 3l6 6-6 6" />
                                             </svg>
                                         </button>
                                     @else
                                         <button disabled
-                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md border text-gray-400 cursor-not-allowed">
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md border text-gray-400 cursor-not-allowed">
                                             Next
-                                            <svg class="w-4 h-4 flex-shrink-0 align-middle"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M9 3l6 6-6 6" />
                                             </svg>
