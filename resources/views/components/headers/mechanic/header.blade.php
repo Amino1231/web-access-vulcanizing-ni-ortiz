@@ -3,11 +3,10 @@
     class="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 lg:z-61 w-full bg-gray-900 text-sm py-2.5">
     <nav class="px-4 sm:px-5.5 flex basis-full items-center w-full mx-auto">
         <div class="w-full flex items-center gap-x-1.5">
-
             <!-- Logo -->
             <a href="#" class="flex items-center gap-x-3">
             <span class="text-xl font-bold text-white tracking-wide hover:text-orange-400 transition-colors">
-                VulcanCing CUSTOMER
+                VulcanCing MECHANIC
             </span>
             </a>
             <!-- End Logo -->

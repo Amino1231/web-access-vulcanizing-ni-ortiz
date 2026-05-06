@@ -2,12 +2,14 @@
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\CustomerMiddleware;
+use App\Http\Middleware\MechanicMiddleware;
 use App\Http\Middleware\ShopOwnerMiddleware;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
+
 
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -22,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => AdminMiddleware::class,
             'customer' => CustomerMiddleware::class,
             'shop-owner' => ShopOwnerMiddleware::class,
+            'mechanic' => MechanicMiddleware::class,
             'role' => RoleMiddleware::class,
         ]);
     })

@@ -28,9 +28,17 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::livewire('/roles/{role}/edit', 'admin::pages.role.update-role')->name('admin.roles.update');
 
     Route::livewire('/category', 'admin::pages.category.view-category')->name('admin.category');
-    Route::livewire('category/create', 'admin::pages.category.create-category')->name('admin.category.create');
-    Route::livewire('category/{category}/edit', 'admin::pages.category.update-category')->name('admin.category.update');
+    Route::livewire('/category/create', 'admin::pages.category.create-category')->name('admin.category.create');
+    Route::livewire('/category/{category}/edit', 'admin::pages.category.update-category')->name('admin.category.update');
     
+    Route::livewire('/brand', 'admin::pages.brand.view-brand')->name('admin.brand');
+    Route::livewire('/brand/create', 'admin::pages.brand.create-brand')->name('admin.brand.create');
+    Route::livewire('/brand/{brand}/update', 'admin::pages.brand.update-brand')->name('admin.brand.update');
+
+    Route::livewire('/status', 'admin::pages.status.view-status')->name('admin.status');
+    Route::livewire('/status/create', 'admin::pages.status.create-status')->name('admin.status.create');
+    Route::livewire('/status/{status}/update', 'admin::pages.status.update-status')->name('admin.status.update');
+
 });
 
 Route::middleware(['auth', 'role:shop-owner|admin'])->prefix('shop-owner')->group(function () {
@@ -42,6 +50,11 @@ Route::middleware(['auth', 'role:shop-owner|admin'])->prefix('shop-owner')->grou
 
 });
 
+Route::middleware(['auth', 'role:mechanic|admin'])->prefix('mechanic')->group(function () {
+
+    Route::livewire('/dashboard', 'mechanic::pages.dashboard')->name('mechanic.dashboard');
+});
+
 Route::middleware(['auth', 'role:customer|admin'])->prefix('customer')->group(function () {
 
     Route::livewire('/dashboard', 'customer::pages.dashboard')->name('customer.dashboard');
@@ -49,4 +62,3 @@ Route::middleware(['auth', 'role:customer|admin'])->prefix('customer')->group(fu
 });
 
 Broadcast::routes();
-

@@ -126,7 +126,7 @@
                 <div
                     class="pt-3 mt-3 flex flex-col border-t border-orange-600 first:border-t-0 first:pt-0 first:mt-0">
                     <span class="block ps-2.5 mb-2 font-extrabold text-xs uppercase text-orange-400">
-                       Categories
+                       Product Categories
                     </span>
 
                     <!-- List -->
@@ -136,6 +136,22 @@
                                 wire:current="bg-orange-400"
                                 href="{{ route('admin.category') }}">
                                 View All Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
+                                wire:current="bg-orange-400"
+                                href="{{ route('admin.brand') }}">
+                                View All Brands
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-medium text-white rounded-lg hover:bg-orange-400 hover:text-black focus:outline-hidden"
+                                wire:current="bg-orange-400"
+                                href="{{ route('admin.status') }}">
+                                View All Statuses
                             </a>
                         </li>
                     </ul>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? 'Customer View' }}</title>
+    <title>{{ $title ?? 'Mechanic View' }}</title>
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -18,11 +18,11 @@
 </head>
 
 <body>
-    @include('components.headers.customer.header')
+    @include('components.headers.mechanic.header')
         <main class="py-7 bg-[#1A1A1A] bg-gradient-to-br from-orange-600/20 via-transparent to-transparent text-white flex justify-center px-4 sm:px-6 lg:px-8">
             {{ $slot }}
         </main>
-    @include('components.footers.customer.footer')
+    @include('components.footers.mechanic.footer')
     @livewireScripts
     <script src="https://unpkg.com/preline/dist/preline.js"></script>
 </body>

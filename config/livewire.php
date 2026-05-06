@@ -35,6 +35,7 @@ return [
         'admin' => resource_path('views/admin'),
         'auth' => resource_path('views/auth'),
         'shop-owner' => resource_path('views/shop-owner'),
+        'mechanic' => resource_path('views/mechanic'),
         'customer' => resource_path('views/customer'),
     ],
 

@@ -21,10 +21,11 @@ class DatabaseSeeder extends Seeder
             $adminRole = Role::firstOrCreate(['name' => 'admin']);
             $shopOwnerRole = Role::firstOrCreate(['name' => 'shop-owner']);
             $customerRole = Role::firstOrCreate(['name' => 'customer']);
+            $mechanicRole = Role::firstOrCreate(['name' => 'mechanic']);
 
             // Admin account
             $admin = User::firstOrCreate(
-                ['email' => 'admin@example.com'],
+                ['email' => 'admin@gmail.com'],
                 [
                     'name' => 'Miguel Daddy Espinas',
                     'password' => Hash::make('password123'),
@@ -34,7 +35,7 @@ class DatabaseSeeder extends Seeder
 
             // Shop Owner account
             $shopOwner = User::firstOrCreate(
-                ['email' => 'owner@example.com'],
+                ['email' => 'owner@gmail.com'],
                 [
                     'name' => 'John Ranier Ortiz',
                     'password' => Hash::make('password123'),
@@ -42,9 +43,19 @@ class DatabaseSeeder extends Seeder
             );
             $shopOwner->assignRole($shopOwnerRole);
 
-            // Employee account
+            // Mechanic account
+            $mechanic = User::firstOrCreate(
+                ['email' => 'mechanic@gmail.com'],
+                [
+                    'name' => 'Paul Jerk Amino',
+                    'password' => Hash::make('password123'),
+                ]
+            );
+            $mechanic->assignRole($mechanicRole);
+
+            // Customer account
             $customer = User::firstOrCreate(
-                ['email' => 'customer@example.com'],
+                ['email' => 'customer@gmail.com'],
                 [
                     'name' => 'Edmar Jagurin',
                     'password' => Hash::make('password123'),

@@ -57,10 +57,14 @@ new class extends Component
 
             if ($user->hasRole('shop owner')) {
                 return redirect()->route('shop-owner.dashboard');
+            }   
+
+            if ($user->hasRole('mechanic')) {
+                return redirect()->route('mechanic.dashboard');
             }
 
-            if ($user->hasRole('employee')) {
-                return redirect()->route('employee.dashboard');
+            if ($user->hasRole('customer')) {
+                return redirect()->route('customer.dashboard');
             }
             
             if ($user->roles->isEmpty()) {
