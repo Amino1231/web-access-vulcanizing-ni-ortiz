@@ -47,6 +47,7 @@ Route::middleware(['auth', 'role:shop-owner|admin'])->prefix('shop-owner')->grou
 
     Route::livewire('/view-shop', 'shop-owner::pages.shop.view-shop')->name('shop-owner.view-shop');
     Route::livewire('/create-shop', 'shop-owner::pages.shop.create-shop')->name('shop-owner.create-shop');
+    Route::livewire('/single/{shop}', 'shop-owner::pages.shop.single-shop')->name('shop-owner.single-shop');
 
 });
 

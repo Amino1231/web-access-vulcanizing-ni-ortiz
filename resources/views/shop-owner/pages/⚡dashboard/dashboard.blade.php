@@ -77,47 +77,94 @@
 
             <!-- Charts Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <!-- Card -->
-                <div
-                    class="p-4 md:p-5 min-h-102.5 flex flex-col border border-gray-800 bg-neutral-900/60 shadow-2xl rounded-2xl">
-                    <!-- Header -->
+                <!-- Income Card -->
+                <div class="p-4 md:p-5 min-h-102.5 flex flex-col border border-gray-800 bg-neutral-900/60 shadow-2xl rounded-2xl">
                     <div class="flex flex-wrap justify-between items-center gap-2">
-                        <div>
-                            <h2 class="text-sm text-orange-400   ">
-                                Income
-                            </h2>
-                            <p class="text-xl sm:text-2xl font-medium text-white">
-                                ₱0.00
-                            </p>
-                        </div>
+                        <h2 class="text-sm text-orange-400">Income</h2>
+                        <p class="text-xl sm:text-2xl font-medium text-white">₱0.00</p>
                     </div>
-                    <!-- End Header -->
-
-                    <div id="hs-multiple-bar-charts"></div>
+                    <div id="hs-multiple-bar-charts">
+                        <canvas id="incomeChart"></canvas>
+                    </div>
                 </div>
-                <!-- End Card -->
 
-                <!-- Card -->
-                <div
-                    class="p-4 md:p-5 min-h-102.5 flex flex-col border border-gray-800 bg-neutral-900/60 shadow-2xl rounded-2xl">
-                    <!-- Header -->
+                <!-- Visitors Card -->
+                <div class="p-4 md:p-5 min-h-102.5 flex flex-col border border-gray-800 bg-neutral-900/60 shadow-2xl rounded-2xl">
                     <div class="flex flex-wrap justify-between items-center gap-2">
-                        <div>
-                            <h2 class="text-sm text-orange-400   ">
-                                Visitors
-                            </h2>
-                            <p class="text-xl sm:text-2xl font-medium text-white">
-                                0
-                            </p>
-                        </div>
+                        <h2 class="text-sm text-orange-400">Visitors</h2>
+                        <p class="text-xl sm:text-2xl font-medium text-white">0</p>
                     </div>
-                    <!-- End Header -->
-
-                    <div id="hs-single-area-chart"></div>
+                    <div id="hs-single-area-chart">
+                        <canvas id="visitorsChart"></canvas>
+                    </div>
                 </div>
-                <!-- End Card -->
             </div>
             <!-- End Charts Grid -->
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Income Chart
+    const ctxIncome = document.getElementById('incomeChart').getContext('2d');
+    new Chart(ctxIncome, {
+        type: 'bar',
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+            datasets: [{
+                label: 'Monthly Income',
+                data: [8000, 12000, 7000, 9000, 9000], // static values
+                backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            return '₱' + value.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Visitors Chart
+    const ctxVisitors = document.getElementById('visitorsChart').getContext('2d');
+    new Chart(ctxVisitors, {
+        type: 'line',
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+            datasets: [{
+                label: 'Monthly Visitors',
+                data: [120, 200, 150, 180, 220], // static values
+                borderColor: 'rgba(54, 162, 235, 0.8)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            return value + ' visitors';
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+@endpush

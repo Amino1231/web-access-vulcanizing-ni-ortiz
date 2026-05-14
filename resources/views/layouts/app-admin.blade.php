@@ -31,6 +31,7 @@
     </main>
     @livewireScripts
     <script src="https://unpkg.com/preline/dist/preline.js"></script>
+    @stack('scripts')
 </body>
 
 
